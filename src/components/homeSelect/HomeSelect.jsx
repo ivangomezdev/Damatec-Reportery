@@ -13,7 +13,7 @@ import { myContext } from '../../context/myContext'
 import { useExcelHandler } from '../../logic/xlsx/xlsx'
 
 
-const homeSelect = () => {
+const HomeSelect = () => {
    const {setSection,section,filteredLocalsData} = useContext(myContext)
    const [isDisabled, setIsDisabled] = useState(true);
    const {excelData} = useExcelHandler()
@@ -56,4 +56,4 @@ const homeSelect = () => {
   )
 }
 
-export default homeSelect
+export default HomeSelect
