@@ -8,7 +8,7 @@ import LocalsForm from '../components/locals/localsForm/LocalsForm';
 import LocalsRender from '../components/locals/localsRender/LocalsRender';
 import { myContext } from '../context/myContext';
 import { Header, Segment } from 'semantic-ui-react';
-import HomeSelect from '../components/homeSelect/homeSelect';
+import HomeSelect from '../components/homeSelect/HomeSelect';
 import Admin from '../components/admin/Admin';
 import PdvTotalTable from '../components/admin/pdvTotalTable/pdvTotalTable';
 
