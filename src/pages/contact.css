@@ -1,0 +1,34 @@
+.formContainerDiv{
+background-image: url("../../../images/background.avif");
+}
+
+.formContainer{
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formContainer input{
+    background-color: rgba(240, 248, 255, 0.479);
+    border: solid 1px gray;
+}
+
+.formContainer button{
+margin-top: 15px;
+border-radius: 6px;
+border: solid 1px gray
+    
+}
+
+.formContainer button:hover{
+    background-color: rgba(0, 0, 210, 0.779);
+    color: whitesmoke;
+        
+    }
+
+ 

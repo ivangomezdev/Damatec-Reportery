@@ -1,0 +1,29 @@
+.homeCont{
+    margin-top: 10px;
+  
+
+}
+.row1{
+    width: 500px;
+}
+
+.table {
+  position: relative;
+  bottom: 496px;
+  left: 550px;
+  
+}
+.localsTableRender{
+    font-weight: bold;
+}
+
+
+
+.uploadFileForm{
+    display: flex;
+    max-height: 35px;
+    align-items: center;
+}
+.uploadFileForm button{
+    width: 100px;
+}
