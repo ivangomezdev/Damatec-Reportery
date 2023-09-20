@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Header, Image, Table } from 'semantic-ui-react'
-import "../../styles/PdvTotalTable.css"
+import "../../styles/pdvTotalTable.css"
 import { myContext } from '../../../context/myContext'
 
 const PdvTotalTable = () => {
