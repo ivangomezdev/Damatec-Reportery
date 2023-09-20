@@ -10,7 +10,7 @@ import { myContext } from '../context/myContext';
 import { Header, Segment } from 'semantic-ui-react';
 import HomeSelect from '../components/homeSelect/HomeSelect';
 import Admin from '../components/admin/Admin';
-import PdvTotalTable from '../components/admin/pdvTotalTable/pdvTotalTable';
+import PdvTotalTable from '../components/admin/pdvTotalTable/PdvTotalTable';
 
 
 
