@@ -8,20 +8,15 @@ import {
   Search,
   Segment,
 } from 'semantic-ui-react'
-import "../styles/homeSelect.css"
+import "../../styles/homeSelect.css"
 import { myContext } from '../../context/myContext'
 import { useExcelHandler } from '../../logic/xlsx/xlsx'
 
 
 const HomeSelect = () => {
    const {setSection,section,filteredLocalsData} = useContext(myContext)
-   const [isDisabled, setIsDisabled] = useState(true);
-   const {excelData} = useExcelHandler()
-   console.log(section)
-
    
-    const handleClick = () =>{
-      
+    const handleClick = () =>{ 
       if (filteredLocalsData.length > 0) {
         setSection("Administración")
         

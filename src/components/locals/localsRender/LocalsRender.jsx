@@ -2,56 +2,45 @@ import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { myContext } from '../../../context/myContext'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
-import "../../styles/navBar.css"
+import "../../../styles/navBar.css"
 import { useEffect } from 'react'
-import { localsForm } from '../../../logic/Locals/localsFormLogic'
-const LocalsRender = () => {
-  const { renderData, localOptions, setLocalOptions,
-    localDate, setLocalDate } = useContext(myContext)
-   const [myData,setMyData] = useState()
-   
-  //Filtra por el valor de cada producto y muestra la cantidad total del mismo
-  const renderComponent = (value) => {
+import {copyData} from "../../../hooks/useCopyClipBoard"
+import TableComp from '../../table/TableComp'
 
+const LocalsRender = () => {
+  const { renderData, localOptions } = useContext(myContext)
+   const [myData,setMyData] = useState()
+ //Filtra por el valor de cada producto y muestra la cantidad total del mismo
+   const renderComponent = (value) => {
     const filteredData = renderData.filter((item) => {
       return item.PRODUCTO.startsWith(value);
-    })
-    return (filteredData.length)
-  }
- 
-  useEffect(() => {
-    setMyData({...renderData})
-  }, [renderData])
-  console.log(myData)
-  
-
-
-
-
-  const usuario = renderComponent("")
-  const cater = renderComponent("CATER")
-  const altaEquipo = renderComponent("ALTA AHORRO") + renderComponent("Alcatel") + renderComponent("ALTA CON") + renderComponent("ALTA FULL") + renderComponent("ALTA PRE")
-  const repro = renderComponent("ALTA REPRO") + renderComponent("TOTA REPRO")
-  const porta = renderComponent("PORTA") + renderComponent("Porta") + renderComponent("TOTA")
-  const empresaPorta = renderComponent("EMPRESAS PORTA") + renderComponent("PORTA EMPRESAS")
-  const empresaRepro = renderComponent("EMPRESAS REPRO")
-  const OptionCharges = ` 
-  Cargas por Opción: ${cater + altaEquipo + repro + empresaPorta + empresaRepro + porta}
-  Cater: ${cater}
-  Alta c/eq: ${altaEquipo} 
-  Repro: ${repro + empresaRepro}
-  Portas: ${porta + empresaPorta}
-  `
-  const copiarTexto = async () => {
-    try {
-      await navigator.clipboard.writeText(OptionCharges);
-      alert('Texto copiado al portapapeles');
-    } catch (error) {
-      console.error('Error al copiar al portapapeles:', error);
-    }
+    });
+    return filteredData.length;
   };
+   const usuario = renderComponent("");
+   const cater = renderComponent("CATER");
+   const altaEquipo = renderComponent("ALTA AHORRO") + renderComponent("Alcatel") + renderComponent("ALTA CON") +  renderComponent("ALTA FULL") + renderComponent("ALTA PRE");
+   const repro = renderComponent("ALTA REPRO") + renderComponent("TOTA REPRO");
+   const porta = renderComponent("PORTA") + renderComponent("Porta") + renderComponent("TOTA");
+   const empresaPorta = renderComponent("EMPRESAS PORTA") + renderComponent("PORTA EMPRESAS");
+   const empresaRepro = renderComponent("EMPRESAS REPRO");
+   const OptionCharges = ` 
+   Cargas por Opción: ${cater + altaEquipo + repro + empresaPorta + empresaRepro + porta}
+   Cater: ${cater}
+   Alta c/eq: ${altaEquipo} 
+   Repro: ${repro + empresaRepro}
+   Portas: ${porta + empresaPorta}
+   ` 
+   const copiarTexto = () =>{
+    copyData(OptionCharges)
+  }
 
-  
+  useEffect(() => {
+    setMyData({ ...renderData });
+  }, [renderData]);
+
+
+ 
   return (
 
     <Form>
@@ -86,7 +75,8 @@ const LocalsRender = () => {
       </Table>
      {localOptions == "" && <Button className='buttons'  onClick={copiarTexto}>Cargas x Opción 🛄</Button> }  
     </Form>
+  
   )
-}
 
+  }
 export default LocalsRender

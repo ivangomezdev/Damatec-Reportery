@@ -23,7 +23,7 @@ const HandleData = ({ excelData }) => {
       const filterAllAdminUserData = excelData.filter((i) => allAdm.includes(i.USUARIO));
       // filtro solo por la data que necesito
       const filterAllAdminData = filterAllAdminUserData.filter((i) => {
-        return ["DIFERIDA AUDITORIA", "PENDIENTE AUDITORIA", "PENDIENTE VERIFICACIÓN", "PENDIENTE CARGA MOVISTAR", "DIFERIDA CARGA MOVISTAR", "EN TRANSITO"].includes(i.ESTADO)
+        return ["DIFERIDA AUDITORIA", "PENDIENTE AUDITORIA", "PENDIENTE VERIFICACIÓN", "PENDIENTE CARGA MOVISTAR", "DIFERIDA CARGA MOVISTAR", "EN TRANSITO","PENDIENTE CARGA IRIS"].includes(i.ESTADO)
           ;
       })
 

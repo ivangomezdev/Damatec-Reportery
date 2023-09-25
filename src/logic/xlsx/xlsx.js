@@ -1,9 +1,13 @@
 import * as XLSX from "xlsx";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { myContext } from "../../context/myContext";
 
 export const useExcelHandler = () => {
+  const {setInfYDev} = useContext(myContext)
+
   const [excelFile, setExcelFile] = useState([]);
   const [excelData, setExcelData] = useState([]);
+
 
   const handleChange = (e) => {
     const data = e.target.files[0];
@@ -15,9 +19,19 @@ export const useExcelHandler = () => {
     };
   };
 
-  useEffect(() => {
+  const mapProductsState = excelData.filter((p) => {
+    return p.ESTADO === "DEVUELTA MOVISTAR" || p.ESTADO === "INFORMADA MOVISTAR";
+   });
 
+ 
+
+  useEffect(() => {
+  setInfYDev(mapProductsState)
   }, [excelData]);
+
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +45,9 @@ export const useExcelHandler = () => {
       console.log("Nada seleccionado");
     }
   };
+  
+
+
 
   return { excelFile, excelData, handleChange, handleSubmit ,setExcelData };
 };

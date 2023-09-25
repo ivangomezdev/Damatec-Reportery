@@ -10,7 +10,7 @@ const MyContextProvider = ({ children }) => {
   const [localOptions, setLocalOptions] = useState('');
   const [section, setSection] = useState("Locales")
   const [filteredAdmData,setFilteredAdmData] = useState()
-
+  const [infYDev,setInfYDev] = useState({})
 
   return (
     <div>
@@ -20,7 +20,7 @@ const MyContextProvider = ({ children }) => {
         renderData, setRenderData,
         section, setSection,
         filteredAdmData,setFilteredAdmData,
-    
+        infYDev,setInfYDev
       }}>
         {children}
       </myContext.Provider>
